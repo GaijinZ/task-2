@@ -1,4 +1,4 @@
-package multipleofnumbers
+package multipleofthreeandfive
 
 func MultipleOfThreeaAndFive(arr []int) []int {
 	finalNumbers := []int{}
