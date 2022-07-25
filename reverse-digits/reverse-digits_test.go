@@ -1,16 +1,27 @@
 package reversedigits
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestNegativeNumber(t *testing.T) {
-	nums := 159358
+	cases := []struct {
+		Got      int
+		Expected int
+	}{
+		{158, 851},
+		{0, 0},
+		{1, 1},
+		{100, 1},
+	}
 
-	got := ReverseDigits(nums)
-
-	want := 853951
-
-	if want != got {
-		t.Errorf("got %d want %d given, %v", got, want, nums)
+	for _, tc := range cases {
+		t.Run("success", func(t *testing.T) {
+			got := ReverseDigits(tc.Got)
+			assert.Equal(t, tc.Expected, got)
+		})
 	}
 
 }
